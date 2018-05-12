@@ -8,14 +8,16 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Automata {
+public class SimpleAutomata {
 
     private final State DeadState = new State(-1, "DeadState");
     private int NumberOfStates;
     private int StartState;
     private List<State> ListStates = new ArrayList<>();
+    
+    
 
-    public Automata(String DirFile) {
+    public SimpleAutomata(String DirFile) {
         File file = new File(DirFile);
 
         try {
@@ -45,11 +47,18 @@ public class Automata {
             }
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Automata.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SimpleAutomata.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
+    public SimpleAutomata(int NumberOfStates, int StartState) {
+        this.NumberOfStates = NumberOfStates;
+        this.StartState = StartState;
+    }
+
+    
+    
     private State getState(int from) {
         for (State u : this.ListStates) {
             if (u.getID() == from) {
