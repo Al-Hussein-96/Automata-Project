@@ -24,12 +24,9 @@ public class SimpleAutomata {
             Scanner input = new Scanner(file);
             this.NumberOfStates = input.nextInt();
             this.StartState = input.nextInt();
-            System.out.println("NumberOfState : " + this.NumberOfStates);
-            System.out.println("StartState : " + this.StartState);
             this.ListStates.add(DeadState);
             for (int i = 0; i < NumberOfStates; i++) {
                 int ok = input.nextInt();
-                System.out.println("State : " + i + " : " + ok);
                 State state = new State(i, "q" + String.valueOf(i));
                 state.setIsFinal((ok != 0));
                 ListStates.add(state);
@@ -42,7 +39,6 @@ public class SimpleAutomata {
 
                 State st = getState(from);
                 State en = getState(to);
-                System.out.println(st.getName() + " : " + ch + " : " + en.getName());
                 st.AddTrans(new Transitions(en, ch));
             }
 
@@ -59,7 +55,7 @@ public class SimpleAutomata {
 
     
     
-    private State getState(int from) {
+    public State getState(int from) {
         for (State u : this.ListStates) {
             if (u.getID() == from) {
                 return u;
@@ -98,5 +94,31 @@ public class SimpleAutomata {
         }
         return DeadState;
     }
+
+    public int getNumberOfStates() {
+        return NumberOfStates;
+    }
+
+    public void setNumberOfStates(int NumberOfStates) {
+        this.NumberOfStates = NumberOfStates;
+    }
+
+    public int getStartState() {
+        return StartState;
+    }
+
+    public void setStartState(int StartState) {
+        this.StartState = StartState;
+    }
+
+    public List<State> getListStates() {
+        return ListStates;
+    }
+
+    public void setListStates(List<State> ListStates) {
+        this.ListStates = ListStates;
+    }
+    
+    
 
 }

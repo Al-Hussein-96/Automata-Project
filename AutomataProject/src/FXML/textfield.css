@@ -1,0 +1,14 @@
+.text-input {
+    -fx-text-inner-color: white;
+
+}
+.combo-box .cell{
+    -fx-text-fill: blueviolet;
+    -fx-font: 18px "Arial";
+}
+.my-list-cell {
+    -fx-text-fill: white;
+    -fx-font: 20px "Arial";
+    /* No alternate highlighting */
+    /*-fx-background-color: #FFF;*/
+}

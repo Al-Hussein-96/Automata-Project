@@ -2,7 +2,9 @@ package graph;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 
 public class Edge extends Group {
 
@@ -12,7 +14,7 @@ public class Edge extends Group {
     Line line;
     Label label;
 
-    public Edge(Cell source, Cell target) {
+    public Edge(Cell source, Cell target,char ch) {
 
         this.source = source;
         this.target = target;
@@ -21,7 +23,12 @@ public class Edge extends Group {
         target.addCellParent(source);
 
         line = new Line();
-        label = new Label("a");
+        line.setFill(Color.WHITE);
+        line.setStrokeWidth(5);
+        
+        label = new Label(String.valueOf(ch));
+        label.setTextFill(Color.WHEAT);
+        label.setFont(new Font(20));
 
         line.startXProperty().bind(source.layoutXProperty().add(source.getBoundsInParent().getWidth() / 2.0));
         line.startYProperty().bind(source.layoutYProperty().add(source.getBoundsInParent().getHeight() / 2.0));
@@ -30,7 +37,7 @@ public class Edge extends Group {
         line.endYProperty().bind(target.layoutYProperty().add(target.getBoundsInParent().getHeight() / 2.0));
 
         label.layoutXProperty().bind(line.endXProperty().subtract(line.endXProperty().subtract(line.startXProperty()).divide(2)));
-        label.layoutYProperty().bind(line.endYProperty().subtract(line.endYProperty().subtract(line.startYProperty()).divide(2)));
+        label.layoutYProperty().bind(line.endYProperty().subtract(line.endYProperty().subtract(line.startYProperty() ).divide(2)));
 
         getChildren().addAll(line,label);
 
