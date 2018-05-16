@@ -18,7 +18,12 @@ public class Main {
 
     public Main(SimpleAutomata DFA) throws IOException {
         Stage stage = new Stage();
-        BorderPane root = FXMLLoader.load(getClass().getResource("fxml.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("fxml.fxml"));
+        BorderPane root = fxml.load();
+        
+        fxmlController c = fxml.getController();
+        
+        c.setDFA(DFA);
 
         graph = new Graph();
         

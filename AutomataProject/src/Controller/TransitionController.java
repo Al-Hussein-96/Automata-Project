@@ -8,6 +8,7 @@ package Controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
+import graph.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import model.SimpleAutomata;
 
 /**
  * FXML Controller class
@@ -26,15 +28,17 @@ import javafx.scene.paint.Color;
  */
 public class TransitionController implements Initializable {
 
+    SimpleAutomata DFA;
     private int NumberOfState;
     private String Alphabet;
 
-    public TransitionController(int NumberOfState, String Alphabet) {
+    public TransitionController(int NumberOfState, String Alphabet, SimpleAutomata DFA) {
         this.NumberOfState = NumberOfState;
         this.Alphabet = Alphabet;
+        this.DFA = DFA;
     }
 
-    JFXTextField vertex[];
+    JFXTextField vertex[], AlphaText[];
     JFXTextField edges[][];
 
     @FXML
@@ -51,63 +55,31 @@ public class TransitionController implements Initializable {
 
     @FXML
     private GridPane edgesGrid;
-    
+
     @FXML
     private GridPane AlphbetGrid;
 
     @FXML
     void previousButtonAction(ActionEvent event) throws IOException {
-        AnchorPane rootPane = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        AnchorPane rootPane = FXMLLoader.load(getClass().getResource("/FXML/CreateAutomat.fxml"));
         vertexPane.getChildren().setAll(rootPane);
 
     }
 
     @FXML
     void nextButtonAction(ActionEvent event) throws IOException {
+        for (int i = 0; i < this.NumberOfState; i++) {
+            for (int j = 0; j < this.Alphabet.length(); j++) {
+                String from = vertex[i].getText();
+                char ch = AlphaText[j].getText().charAt(0);
+                String to = edges[i][j].getText();
 
-        String[] vertexValue = new String[NumberOfState];
-        Double[][] edgesValue = new Double[NumberOfState][NumberOfState];
-
-        boolean valueTaker = true;
-
-        for (int i = 0; i < NumberOfState; i++) {
-            vertexValue[i] = vertex[i].getText();
-
-            if ("".equals(vertexValue[i])) {
-                JFXSnackbar snackbar = new JFXSnackbar(vertexPane);
-                vertex[i].setUnFocusColor(Color.web("#ff0000"));
-                snackbar.show("Vertex Field can not be Empty!", 5000);
-                valueTaker = false;
-            } else {
-                vertex[i].setUnFocusColor(Color.web("#4d4d4d"));
+                DFA.AddTransition(from, to, ch);
             }
         }
+        nextButton.getScene().getWindow().hide();
 
-        for (int i = 0; i < NumberOfState; i++) {
-            for (int j = 0; j < NumberOfState; j++) {
-
-                String num = edges[i][j].getText();
-
-                if (num == "") {
-                    edges[i][j].setUnFocusColor(Color.web("#ff0000"));
-                    JFXSnackbar snackbar = new JFXSnackbar(vertexPane);
-                    valueTaker = false;
-                    snackbar.show("Edge field can not be Empty!", 5000);
-                } else if ("inf".equals(num) || "i".equals(num)) {
-                    edgesValue[i][j] = Double.POSITIVE_INFINITY;
-                } else {
-                    try {
-                        edgesValue[i][j] = Double.parseDouble(num);
-                        edges[i][j].setUnFocusColor(Color.web("#4d4d4d"));
-                    } catch (Exception e) {
-                        JFXSnackbar snackbar = new JFXSnackbar(vertexPane);
-                        edges[i][j].setUnFocusColor(Color.web("#ff0000"));
-                        snackbar.show("One or more fields are not valid!", 5000);
-                        valueTaker = false;
-                    }
-                }
-            }
-        }
+        Main main = new Main(DFA);
 
     }
 
@@ -115,30 +87,33 @@ public class TransitionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         vertex = new JFXTextField[NumberOfState];
-        edges = new JFXTextField[NumberOfState][NumberOfState];
+        AlphaText = new JFXTextField[this.Alphabet.length()];
+        edges = new JFXTextField[NumberOfState][this.Alphabet.length()];
 
         for (int i = 0; i < NumberOfState; i++) {
             vertex[i] = new JFXTextField();
             vertex[i].setFocusColor(Color.web("1A237E"));
             vertex[i].setUnFocusColor(Color.web("#4d4d4d"));
-            vertex[i].setText(Integer.toString(i + 1));
+            vertex[i].setText("q" + Integer.toString(i));
+            vertex[i].setEditable(false);
             State.add(vertex[i], 0, i);
         }
-
         for (int i = 0; i < NumberOfState; i++) {
-            for (int j = 0; j < NumberOfState; j++) {
+            for (int j = 0; j < (int) Alphabet.length(); j++) {
                 edges[i][j] = new JFXTextField();
                 edges[i][j].setFocusColor(Color.web("#00838F"));
                 edges[i][j].setUnFocusColor(Color.web("#4d4d4d"));
-                edges[i][j].setPromptText("v" + (i + 1) + "e" + (j + 1));
-
-                if (i == j) {
-                    edges[i][j].setText("0");
-                    edges[i][j].setEditable(false);
-                }
+                edges[i][j].setPromptText("null");
 
                 edgesGrid.add(edges[i][j], j, i);
             }
+        }
+        for (int i = 0; i < Alphabet.length(); i++) {
+            AlphaText[i] = new JFXTextField(String.valueOf(Alphabet.charAt(i)));
+            AlphaText[i].setFocusColor(Color.web("1A237E"));
+            AlphaText[i].setUnFocusColor(Color.web("#4d4d4d"));
+            AlphaText[i].setEditable(false);
+            AlphbetGrid.add(AlphaText[i], i, 0);
         }
     }
 }

@@ -1,12 +1,15 @@
 package Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import graph.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.FillTransition;
 import javafx.animation.ParallelTransition;
@@ -35,7 +38,6 @@ import model.SimpleAutomata;
 import org.controlsfx.control.ToggleSwitch;
 
 public class CreateAutomatController implements Initializable {
-
     @FXML
     private GridPane GridPane;
     @FXML
@@ -60,6 +62,36 @@ public class CreateAutomatController implements Initializable {
 
     @FXML
     private JFXButton Next;
+    
+        @FXML
+    private JFXCheckBox q0;
+
+    @FXML
+    private JFXCheckBox q1;
+
+    @FXML
+    private JFXCheckBox q2;
+
+    @FXML
+    private JFXCheckBox q3;
+
+    @FXML
+    private JFXCheckBox q4;
+
+    @FXML
+    private JFXCheckBox q5;
+
+    @FXML
+    private JFXCheckBox q6;
+
+    @FXML
+    private JFXCheckBox q7;
+
+    @FXML
+    private JFXCheckBox q8;
+
+    @FXML
+    private JFXCheckBox q9;
 
     @FXML
     void btnBack(ActionEvent event) {
@@ -76,9 +108,34 @@ public class CreateAutomatController implements Initializable {
 
     @FXML
     void btnNext(ActionEvent event) throws IOException {
+        List<String> Final = new ArrayList<>();
+        
+        if(q0.isSelected())
+            Final.add("q0");
+        if(q1.isSelected())
+            Final.add("q1");
+        if(q2.isSelected())
+            Final.add("q2");
+        if(q3.isSelected())
+            Final.add("q3");
+        if(q4.isSelected())
+            Final.add("q4");
+        if(q5.isSelected())
+            Final.add("q5");
+        if(q6.isSelected())
+            Final.add("q6");
+        if(q7.isSelected())
+            Final.add("q7");
+        if(q8.isSelected())
+            Final.add("q8");
+        if(q9.isSelected())
+            Final.add("q9");
+        
+        
+        SimpleAutomata DFA = new SimpleAutomata(this.ComNumberState.getValue(), this.ComStartState.getValue(), Final, this.txtalphabet.getText());
         Next.getScene().getWindow().hide();
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/FXML/Transition.fxml"));
-        TransitionController transitionController = new TransitionController((int)ComNumberState.getValue(), txtalphabet.getText());
+        TransitionController transitionController = new TransitionController((int)ComNumberState.getValue(), txtalphabet.getText(),DFA);
         fxml.setController(transitionController);
         Parent root = fxml.load();
    

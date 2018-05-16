@@ -13,9 +13,8 @@ public class SimpleAutomata {
     private final State DeadState = new State(-1, "DeadState");
     private int NumberOfStates;
     private int StartState;
+    private String Alphabet;
     private List<State> ListStates = new ArrayList<>();
-    
-    
 
     public SimpleAutomata(String DirFile) {
         File file = new File(DirFile);
@@ -48,16 +47,35 @@ public class SimpleAutomata {
 
     }
 
-    public SimpleAutomata(int NumberOfStates, int StartState) {
+    public SimpleAutomata(int NumberOfStates, int StartState, List<String> FinalState, String Alphabet) {
         this.NumberOfStates = NumberOfStates;
         this.StartState = StartState;
+        this.Alphabet = Alphabet;
+        this.ListStates.add(DeadState);
+        for (int i = 0; i < NumberOfStates; i++) {
+            State state = new State(i, "q" + String.valueOf(i));
+            ListStates.add(state);
+        }
     }
 
-    
-    
+    public void AddTransition(String from, String to, char ch) {
+        State F = getState(from);
+        State T = getState(to);
+        F.AddTrans(new Transitions(T, ch));
+    }
+
     public State getState(int from) {
         for (State u : this.ListStates) {
             if (u.getID() == from) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public State getState(String from) {
+        for (State u : this.ListStates) {
+            if (u.getName().equals(from)) {
                 return u;
             }
         }
@@ -118,7 +136,5 @@ public class SimpleAutomata {
     public void setListStates(List<State> ListStates) {
         this.ListStates = ListStates;
     }
-    
-    
 
 }
