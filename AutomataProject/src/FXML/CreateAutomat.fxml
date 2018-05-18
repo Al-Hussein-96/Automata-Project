@@ -116,7 +116,7 @@
             <Font size="24.0" />
          </font>
       </JFXButton>
-      <Pane prefHeight="100.0" prefWidth="803.0" style="-fx-background-color: #996a63;">
+      <Pane layoutX="3.0" prefHeight="100.0" prefWidth="803.0" style="-fx-background-color: #996a63;">
          <children>
             <Text layoutX="226.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simple Automat">
                <font>
