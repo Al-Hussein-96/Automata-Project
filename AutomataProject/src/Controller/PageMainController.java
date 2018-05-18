@@ -11,13 +11,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.PhpAutomat;
 
 public class PageMainController implements Initializable {
 
     @FXML
     private JFXButton Button;
+
     @FXML
-    void btnComplex(ActionEvent event) {
+    void btnComplex(ActionEvent event) throws IOException {
+        PhpAutomat DFA = new PhpAutomat();
+        Button.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Php.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        stage.show();
+        stage.setResizable(false);
 
     }
 

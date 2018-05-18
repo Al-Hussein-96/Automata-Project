@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.PhpAutomat;
 import model.SimpleAutomata;
 import model.State;
 import model.Transitions;
@@ -41,6 +42,9 @@ public class Main {
         layout.execute();
     }
 
+
+    
+
 //    @Override
 //    public void start(Stage primaryStage) {
 //        BorderPane root = new BorderPane();
@@ -68,6 +72,7 @@ public class Main {
 
         graph.beginUpdate();
         model.addCell("T");
+        System.out.println("DFA: " + DFA.getNumberOfStates());
         for (int i = 0; i < DFA.getNumberOfStates(); i++) {
             model.addCell("q" + String.valueOf(i));
         }
@@ -75,8 +80,8 @@ public class Main {
         for (int i = 0; i < DFA.getNumberOfStates(); i++) {
             State state = DFA.getState(i);
             for (Transitions u : state.getTrans()) {
-//                System.out.println(state.getName() + " : " + u.getTo().getName());
-                model.addEdge(state.getName(), (u.getTo().getName().equals("DeadState") ? "T" : u.getTo().getName()), u.getCh());
+                System.out.println(" : " + u + " : ");
+                model.addEdge(state.getName(), (u.getTo().getName().equals("T") ? "T" : u.getTo().getName()), u.getCh());
             }
         }
 

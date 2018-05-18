@@ -6,7 +6,6 @@
 package Controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import graph.Main;
 import java.io.IOException;
@@ -72,12 +71,18 @@ public class TransitionController implements Initializable {
             for (int j = 0; j < this.Alphabet.length(); j++) {
                 String from = vertex[i].getText();
                 char ch = AlphaText[j].getText().charAt(0);
-                String to = edges[i][j].getText();
-
+                String to;
+                if (edges[i][j].getText().isEmpty()) {
+                    to = "T";
+                } else {
+                    to = edges[i][j].getText();
+                }
                 DFA.AddTransition(from, to, ch);
             }
         }
         nextButton.getScene().getWindow().hide();
+
+        System.out.println(DFA.getNumberOfStates());
 
         Main main = new Main(DFA);
 
@@ -103,7 +108,7 @@ public class TransitionController implements Initializable {
                 edges[i][j] = new JFXTextField();
                 edges[i][j].setFocusColor(Color.web("#00838F"));
                 edges[i][j].setUnFocusColor(Color.web("#4d4d4d"));
-                edges[i][j].setPromptText("null");
+                edges[i][j].setPromptText("T");
 
                 edgesGrid.add(edges[i][j], j, i);
             }

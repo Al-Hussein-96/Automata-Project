@@ -43,6 +43,7 @@ public class fxmlController implements Initializable {
         String Word = txtWord.getText();
 
         List<State> Result = DFA.Solve(DFA.getStartState(), Word);
+        System.out.println("Result : " + Result.size());
         State last = Result.get(Result.size() - 1);
         if (last.isIsFinal()) {
             Notifications notification = Notifications.create()
@@ -86,5 +87,5 @@ public class fxmlController implements Initializable {
     public void setDFA(SimpleAutomata DFA) {
         this.DFA = DFA;
     }
-
+    
 }

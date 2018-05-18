@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class SimpleAutomata {
 
-    private final State DeadState = new State(-1, "DeadState");
+    private final State DeadState = new State(-1, "T");
     private int NumberOfStates;
     private int StartState;
     private String Alphabet;
@@ -55,6 +55,11 @@ public class SimpleAutomata {
         for (int i = 0; i < NumberOfStates; i++) {
             State state = new State(i, "q" + String.valueOf(i));
             ListStates.add(state);
+        }
+        for(String u:FinalState)
+        {
+            State state = getState(u);
+            state.setIsFinal(true);
         }
     }
 
