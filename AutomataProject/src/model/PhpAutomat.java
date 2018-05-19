@@ -9,7 +9,7 @@ public class PhpAutomat {
     private final int NumberOfStates = 35;
     private final int StartState = 0;
     private final int FinalState[] = {2, 4, 6, 12, 17, 19, 22, 27, 30, 34};
-    private final String TypeState[] = {"Variables", "Natural Digit", "Real Digit", "static", "while", "if", "for", "class", "case", "Comment"};
+    private final String TypeState[] = {"Variables", "Natural Digit", "Real Digit", "(static) Reserved word", "(while) Reserved word", "(if) Reserved word", "(for) Reserved word", "(class) Reserved word", "(case) Reserved word", "Comment"};
     private final List<State> ListStates = new ArrayList<>();
 
     public PhpAutomat() {

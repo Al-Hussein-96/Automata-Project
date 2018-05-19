@@ -22,7 +22,10 @@ public class PageMainController implements Initializable {
     void btnComplex(ActionEvent event) throws IOException {
         PhpAutomat DFA = new PhpAutomat();
         Button.getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Php.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/FXML/Php.fxml"));
+        Parent root = fxml.load();
+        PhpController phpController = fxml.getController();
+        phpController.setDFA(DFA);
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);

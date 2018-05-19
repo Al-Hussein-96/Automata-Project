@@ -2,6 +2,7 @@ package graph;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -29,6 +30,11 @@ public class Edge extends Group {
         label = new Label(String.valueOf(ch));
         label.setTextFill(Color.WHEAT);
         label.setFont(new Font(20));
+        
+        
+        
+        
+                
 
         line.startXProperty().bind(source.layoutXProperty().add(source.getBoundsInParent().getWidth() / 2.0));
         line.startYProperty().bind(source.layoutYProperty().add(source.getBoundsInParent().getHeight() / 2.0));
