@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package graph;
 
 import com.jfoenix.controls.JFXButton;
@@ -42,6 +37,26 @@ public class fxmlController implements Initializable {
     void btnCheck(ActionEvent event) {
         String Word = txtWord.getText();
 
+        for (int i = 0; i < Word.length(); i++) {
+            boolean ok = false;
+            for (int j = 0; j < DFA.Alphabet.length(); j++) {
+                if (Word.charAt(i) == DFA.Alphabet.charAt(j)) {
+                    ok = true;
+                }
+            }
+            if (ok == false) {
+                Notifications notification = Notifications.create()
+                        .title("")
+                        .text("Pattern is contain char not exist in Alphabet")
+                        .graphic(null)
+                        .darkStyle()
+                        .hideAfter(Duration.seconds(2))
+                        .position(Pos.CENTER);
+                notification.showConfirm();
+                return;
+            }
+
+        }
         List<State> Result = DFA.Solve(DFA.getStartState(), Word);
         System.out.println("Result : " + Result.size());
         State last = Result.get(Result.size() - 1);
@@ -50,6 +65,7 @@ public class fxmlController implements Initializable {
                     .title("")
                     .text("Correct")
                     .graphic(null)
+                    .darkStyle()
                     .hideAfter(Duration.seconds(2))
                     .position(Pos.CENTER);
             notification.showConfirm();
@@ -58,6 +74,7 @@ public class fxmlController implements Initializable {
                     .title("Create Project")
                     .text("Not Correct")
                     .graphic(null)
+                    .darkStyle()
                     .hideAfter(Duration.seconds(2))
                     .position(Pos.CENTER);
             notification.showConfirm();
@@ -67,6 +84,7 @@ public class fxmlController implements Initializable {
 
     @FXML
     void btnBack(ActionEvent event) throws IOException {
+        
         Back.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/CreateAutomat.fxml"));
         Stage stage = new Stage();
@@ -87,5 +105,5 @@ public class fxmlController implements Initializable {
     public void setDFA(SimpleAutomata DFA) {
         this.DFA = DFA;
     }
-    
+
 }

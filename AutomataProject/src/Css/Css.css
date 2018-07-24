@@ -1,0 +1,11 @@
+.animatd-option-button
+{
+  -fx-background-color:#536DFE;
+	-fx-background-radius:50px;
+	
+	-fx-text-fill:white;
+	-fx-border-color:white;
+	-fx-border-radius:50px;
+	-fx-border-width:4px;
+
+}

@@ -6,18 +6,23 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.ToggleSwitch?>
 
-<AnchorPane id="AnchorPane" prefHeight="664.0" prefWidth="721.0" style="-fx-background-color: #24272b;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateAutomatController">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="664.0" prefWidth="636.0" style="-fx-background-color: #24272b;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateAutomatController">
    <children>
-      <GridPane fx:id="GridPane" hgap="25.0" layoutX="187.0" layoutY="404.0" prefHeight="100.0" prefWidth="426.0" vgap="10.0">
+      <ImageView fitHeight="664.0" fitWidth="655.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5.jpg" />
+         </image>
+      </ImageView>
+      <GridPane fx:id="GridPane" hgap="25.0" layoutX="35.0" layoutY="404.0" prefHeight="100.0" prefWidth="578.0" vgap="10.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -30,23 +35,23 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXCheckBox fx:id="q0" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" text="q0" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.valignment="CENTER" />
-            <JFXCheckBox fx:id="q1" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q1" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="1" />
-            <JFXCheckBox fx:id="q2" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q2" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="2" />
-            <JFXCheckBox fx:id="q3" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q3" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="3" />
-            <JFXCheckBox fx:id="q4" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q4" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="4" />
-            <JFXCheckBox fx:id="q5" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q5" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.rowIndex="1" />
-            <JFXCheckBox fx:id="q6" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q6" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <JFXCheckBox fx:id="q7" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q7" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <JFXCheckBox fx:id="q8" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q8" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <JFXCheckBox fx:id="q9" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q9" textFill="WHITE" unCheckedColor="#685e5e" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <JFXCheckBox fx:id="q0" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" text="q0" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.valignment="CENTER" />
+            <JFXCheckBox fx:id="q1" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q1" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="1" />
+            <JFXCheckBox fx:id="q2" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q2" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="2" />
+            <JFXCheckBox fx:id="q3" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q3" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="3" />
+            <JFXCheckBox fx:id="q4" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q4" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="4" />
+            <JFXCheckBox fx:id="q5" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q5" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.rowIndex="1" />
+            <JFXCheckBox fx:id="q6" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q6" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXCheckBox fx:id="q7" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q7" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <JFXCheckBox fx:id="q8" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q8" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <JFXCheckBox fx:id="q9" checkedColor="#4ac688" prefHeight="30.0" prefWidth="70.0" stylesheets="@checkBox.css" text="q9" textFill="#0a0a0a" unCheckedColor="#0d0d0d" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </JFXCheckBox>
          </children>
       </GridPane>
-      <GridPane hgap="30.0" layoutX="135.0" layoutY="200.0" vgap="30.0">
+      <GridPane hgap="30.0" layoutX="53.0" layoutY="217.0" prefHeight="159.0" prefWidth="508.0" vgap="30.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -57,35 +62,35 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="34.0" prefWidth="236.0" text="Number Of State" textFill="#ffcbcb" GridPane.rowIndex="1">
+            <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="236.0" text="Number Of State" textFill="#0d0d0d" GridPane.rowIndex="1">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label text="Start State" textFill="#ffcbcb" GridPane.rowIndex="2">
+            <Label text="Start State" textFill="#171717" GridPane.rowIndex="2">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
             <JFXComboBox fx:id="ComNumberState" prefHeight="31.0" prefWidth="253.0" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <JFXComboBox fx:id="ComStartState" focusColor="#808fbf" prefHeight="31.0" prefWidth="253.0" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Alphbet" textFill="#ffcbcb">
+            <Label text="Alphbet" textAlignment="CENTER" textFill="#0a0a0a">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtalphabet" prefHeight="31.0" prefWidth="253.0" stylesheets="@textfield.css" unFocusColor="WHITE" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="txtalphabet" onAction="#getAlpha" prefHeight="31.0" prefWidth="253.0" stylesheets="@textfield.css" unFocusColor="WHITE" GridPane.columnIndex="1" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </GridPane>
-      <JFXButton fx:id="create" layoutX="676.0" layoutY="613.0" onAction="#btnCreate" prefHeight="42.0" prefWidth="105.0" text="Create" textFill="WHITE" visible="false">
+      <JFXButton fx:id="create" layoutX="475.0" layoutY="600.0" onAction="#btnCreate" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #303F9F; -fx-background-radius: 30 0 0 30;" text="Create" textFill="WHITE" visible="false">
          <font>
             <Font size="24.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="607.0" onAction="#btnBack" prefHeight="51.0" prefWidth="130.0" style="-fx-background-color: #2cc910; -fx-background-radius: 0 30 30 0;" text="Back" textFill="WHITE">
+      <JFXButton layoutX="14.0" layoutY="602.0" onAction="#btnBack" opacity="0.84" prefHeight="51.0" prefWidth="130.0" style="-fx-background-color: #303F9F; -fx-background-radius: 0 30 30 0;" text="Back" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
@@ -95,35 +100,31 @@
             <Font size="18.0" />
          </font>
       </ToggleSwitch>
-      <Label layoutX="281.0" layoutY="120.0" text="Manual" textFill="WHITE">
+      <Label layoutX="281.0" layoutY="120.0" text="Manual" textFill="#141414">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="435.0" layoutY="120.0" text="File" textFill="#f2f2f2">
+      <Label layoutX="435.0" layoutY="120.0" text="File" textFill="#1e1d1d">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtpath" layoutX="200.0" layoutY="520.0" prefHeight="31.0" prefWidth="248.0" stylesheets="@textfield.css" unFocusColor="#a4a4a4" />
-      <JFXButton fx:id="open" layoutX="487.0" layoutY="510.0" onAction="#btnOpen" prefHeight="42.0" prefWidth="105.0" text="Open" textFill="WHITE">
+      <JFXTextField fx:id="txtpath" layoutX="173.0" layoutY="541.0" prefHeight="31.0" prefWidth="248.0" stylesheets="@textfield.css" unFocusColor="#a4a4a4" />
+      <JFXButton fx:id="open" layoutX="442.0" layoutY="536.0" onAction="#btnOpen" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #303F9F; -fx-background-radius: 30 30 30 30;" text="Open" textFill="#1b1a1a">
          <font>
             <Font size="24.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="Next" layoutX="656.0" layoutY="606.0" onAction="#btnNext" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #2cc910; -fx-background-radius: 30 0 0 30;" text="Next" textFill="WHITE">
+      <JFXButton fx:id="Next" layoutX="475.0" layoutY="600.0" onAction="#btnNext" opacity="0.84" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #303F9F; -fx-background-radius: 30 0 0 30;" text="Next" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="3.0" prefHeight="100.0" prefWidth="803.0" style="-fx-background-color: #996a63;">
-         <children>
-            <Text layoutX="226.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simple Automat">
-               <font>
-                  <Font name="Hacen Trarza" size="51.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
+      <Label layoutX="154.0" layoutY="39.0" text="Simple Automat">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

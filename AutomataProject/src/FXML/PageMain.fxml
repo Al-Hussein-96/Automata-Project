@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #24272b;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PageMainController">
+<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PageMainController">
    <children>
-      <Text fill="#d3d2d2" layoutX="94.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deterministic Finite Automaton">
+      <ImageView fitHeight="608.0" fitWidth="774.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@design1.png" />
+         </image>
+      </ImageView>
+      <Text fill="#2565bf" layoutX="116.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deterministic&#10;&#9; &#9;Finite&#10;&#9;&#9;&#9; Automaton">
          <font>
-            <Font name="Hacen Trarza" size="51.0" />
+            <Font name="Cocon-Light" size="51.0" />
          </font>
       </Text>
-      <JFXButton fx:id="Button" layoutX="250.0" layoutY="227.0" onAction="#btnSimple" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-color: #2cc910; -fx-background-radius: 30 30 30 30;" text="Simple Automat" textFill="#930c0c">
+      <JFXButton fx:id="Button" layoutX="4.0" layoutY="121.0" onAction="#btnSimple" opacity="0.63" prefHeight="95.0" prefWidth="96.0" ripplerFill="BLACK" styleClass="animatd-option-button" stylesheets="@../Css/Css.css" text="Simple&#10;" textAlignment="CENTER" textFill="#930c0c">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="406.0" layoutY="503.0" onAction="#btnComplex" opacity="0.56" prefHeight="95.0" prefWidth="102.0" ripplerFill="BLACK" styleClass="animatd-option-button" stylesheets="@../Css/Css.css" text="PHP&#10;" textAlignment="CENTER" textFill="#930c0c">
          <font>
             <Font size="29.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="250.0" layoutY="324.0" onAction="#btnComplex" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" style="-fx-background-color: #2cc910; -fx-background-radius: 30 30 30 30;" text="Php Automat" textFill="#930c0c">
+      <JFXButton fx:id="rabeeeeeeee" layoutX="653.0" layoutY="12.0" onAction="#Rabee" opacity="0.56" prefHeight="55.0" prefWidth="54.0" ripplerFill="BLACK" styleClass="animatd-option-button" stylesheets="@../Css/Css.css" text="X&#10;" textAlignment="CENTER" textFill="#930c0c">
          <font>
-            <Font size="29.0" />
+            <Font size="16.0" />
          </font>
       </JFXButton>
    </children>

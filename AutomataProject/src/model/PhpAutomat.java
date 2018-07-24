@@ -156,7 +156,9 @@ public class PhpAutomat {
     }
 
     private void AddWords(PhpState state, String Word) {
+        System.out.println("State : " + state);
         for (int i = 0; i < Word.length(); i++) {
+            System.out.println(state);
             PhpState nextState = getState(state.getID() + 1);
             state.AddTrans(new Transitions(nextState, Word.charAt(i)));
             state = nextState;

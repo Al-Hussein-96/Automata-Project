@@ -11,29 +11,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.animation.FillTransition;
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import model.SimpleAutomata;
 import org.controlsfx.control.ToggleSwitch;
 
@@ -193,7 +181,7 @@ public class CreateAutomatController implements Initializable {
             ComStartState.setDisable(false);
             txtalphabet.setDisable(false);
             open.setDisable(true);
-            txtalphabet.setDisable(true);
+            txtpath.setDisable(true);
 
             Next.setVisible(true);
             create.setVisible(false);
@@ -227,6 +215,11 @@ public class CreateAutomatController implements Initializable {
 
         });
 
+    }
+
+    @FXML
+    private void getAlpha(ActionEvent event) {
+        
     }
 
 }

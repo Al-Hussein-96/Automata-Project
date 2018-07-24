@@ -13,7 +13,7 @@ public class SimpleAutomata {
     private final State DeadState = new State(-1, "T");
     private int NumberOfStates;
     private int StartState;
-    private String Alphabet;
+    public String Alphabet;
     private List<State> ListStates = new ArrayList<>();
 
     public SimpleAutomata(String DirFile) {
@@ -21,6 +21,8 @@ public class SimpleAutomata {
 
         try {
             Scanner input = new Scanner(file);
+            this.Alphabet =input.nextLine();
+            System.out.println("Alphbet" + this.Alphabet);
             this.NumberOfStates = input.nextInt();
             this.StartState = input.nextInt();
             this.ListStates.add(DeadState);
